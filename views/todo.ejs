@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title><%= title %></title>
+</head>
+<body class="container">
+ <h1>Requête: <%= request %></h1>
+ <p id="main-paragraphe" class="center">
+      <% if (todo) { %>
+         <p><%= todo['id'] + ' ' + todo['name'] %></p>
+      <% }else{ %>
+         <p>Todo not found</p>
+      <% } %>
+ </p>
+</body>
+</html>

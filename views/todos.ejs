@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title><%= title %></title>
+</head>
+<body class="container">
+ <h1>Requête: <%= request %></h1>
+ <p id="main-paragraphe" class="center">
+    <table>
+        <% for(var i=0; i < todos.length; i++) { %>
+           <tr>
+             <td><%= todos[i].userId %></td>
+             <td><%= todos[i].id %></td>
+             <td><%= todos[i].name %></td>
+           </tr>
+        <% } %>
+        </table>
+ </p>
+</body>
+</html>

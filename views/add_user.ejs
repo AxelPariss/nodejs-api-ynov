@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title><%= title %></title>
+</head>
+<body class="container">
+   <h1>Add todo</h1>
+   <form method="POST">
+      <input name="name" placeholder="name"/>
+      <input name="completion" placeholder="completion"/>
+      <input name="userId" placeholder="ID user"/>
+      <button formaction="/todos" type="submit">Envoyer</button>
+   </form>
+</body>
+</html>
