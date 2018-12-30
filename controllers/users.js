@@ -1,17 +1,20 @@
 const router = require('express').Router()
 const Users = require('./../models/users')
+const moment = require('moment')
 const _ = require('lodash')
 
 // GET USERS
 router.get('/', (req, res) => {
   Users.getAll()
   .then(users => {
+    console.log(users)
     res.format({
       html: () => {
         res.render('users', {
           title: 'GET USERS',
           request: 'GET ' + req.originalUrl,
-          users: users 
+          users: users,
+          moment: moment
         })
       },
       json: () => {
@@ -35,21 +38,22 @@ router.get('/add', (req, res) => {
   })
 })
 
-// GET A TODO
+// GET A USER
 router.get('/:id', (req, res) => {
   if (!req.params.id) return res.status(404).send('NOT FOUND')
-  Todos.findOne(req.params.id)
-  .then((todo) => {
+  Users.findOne(req.params.id)
+  .then((user) => {
     res.format({
       html: () => {
-        res.render('todo', {
-          title: 'GET TODO',
+        res.render('user', {
+          title: 'GET USER',
           request: 'GET ' + req.originalUrl,
-          todo: todo
+          user: user,
+          moment: moment
         })
       },
       json: () => {
-        res.json({todo: todo})
+        res.json({user: user})
       }
     })
   })
@@ -80,16 +84,16 @@ router.get('/:id/edit', (req, res) => {
   })
 })
 
-// POST A TODO
+// POST A USER
 router.post('/', (req, res) => {
-  if (!req.body || (req.body && (!req.body.name || !req.body.completion || !req.body.userId))) 
+  if (!req.body || (req.body && (!req.body.firstname || !req.body.lastname || !req.body.username || !req.body.password || !req.body.email))) 
   return res.status(404).send('NOT FOUND')
 
-  Todos.create(req.body)
-  .then((todo) => {
+  Users.create(req.body)
+  .then((user) => {
     res.format({
       html: () => {
-        res.redirect(301, '/')
+        res.redirect(301, '/users')
       },
       json: () => {
         res.json({message: 'success'})

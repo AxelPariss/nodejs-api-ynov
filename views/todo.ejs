@@ -1,16 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title><%= title %></title>
+   <title><%= title %></title>
+   <%- include('head') %>
 </head>
 <body class="container">
- <h1>Requête: <%= request %></h1>
- <p id="main-paragraphe" class="center">
+      <h1>Requête: <%= request %></h1>
       <% if (todo) { %>
-         <p><%= todo['id'] + ' ' + todo['name'] %></p>
-      <% }else{ %>
-         <p>Todo not found</p>
-      <% } %>
- </p>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Completion</th>
+                  <th scope="col">Created at</th>
+                  <th scope="col">Updated at</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tr>
+                  <td><%= todo.id %></td>
+                  <td><%= todo.name %></td>
+                  <td><%= todo.completion %></td>
+                  <td><%= moment(todo.created_at).format("L") %></td>
+                  <td><%= moment(todo.updated_at).format("L") %></td>
+               </tr>
+            </tbody>
+         </table>
+   <% }else{ %>
+      <p>Todo not found</p>
+   <% } %>
 </body>
 </html>

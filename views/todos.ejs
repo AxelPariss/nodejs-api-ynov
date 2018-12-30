@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title><%= title %></title>
+   <title><%= title %></title>
+   <%- include('head') %>
 </head>
 <body class="container">
- <h1>Requête: <%= request %></h1>
- <p id="main-paragraphe" class="center">
-    <table>
-        <% for(var i=0; i < todos.length; i++) { %>
-           <tr>
-             <td><%= todos[i].userId %></td>
-             <td><%= todos[i].id %></td>
-             <td><%= todos[i].name %></td>
-           </tr>
-        <% } %>
-        </table>
- </p>
+<h1>Requête: <%= request %></h1>
+   <table class="table">
+      <thead>
+         <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Completion</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Updated at</th>
+         </tr>
+      </thead>
+      <tbody>
+      <% for(var i=0; i < todos.length; i++) { %>
+         <tr>
+            <td><%= todos[i].id %></td>
+            <td><%= todos[i].name %></td>
+            <td><%= todos[i].completion %></td>
+            <td><%= moment(todos[i].created_at).format("L") %></td>
+            <td><%= moment(todos[i].updated_at).format("L") %></td>
+         </tr>
+      <% } %>
+      </tbody>
+      </table>
+   <table>
 </body>
 </html>

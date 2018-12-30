@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const Todos = require('./../models/todos')
 const _ = require('lodash')
+const moment = require('moment')
 
 
 
@@ -13,7 +14,8 @@ router.get('/', (req, res) => {
         res.render('todos', {
           title: 'GET TODOS',
           request: 'GET ' + req.originalUrl,
-          todos: todos 
+          todos: todos,
+          moment: moment
         })
       },
       json: () => {
@@ -47,7 +49,8 @@ router.get('/:id', (req, res) => {
         res.render('todo', {
           title: 'GET TODO',
           request: 'GET ' + req.originalUrl,
-          todo: todo
+          todo: todo,
+          moment: moment
         })
       },
       json: () => {
@@ -91,7 +94,7 @@ router.post('/', (req, res) => {
   .then((todo) => {
     res.format({
       html: () => {
-        res.redirect(301, '/')
+        res.redirect(301, '/todos')
       },
       json: () => {
         res.json({message: 'success'})

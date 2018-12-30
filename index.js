@@ -30,10 +30,10 @@ api.use(bodyParser.urlencoded({ extended: false }))
 api.use('/todos', require('./controllers/todos'))
 api.use('/users', require('./controllers/users'))
 
-router.all('/', (req, res, next) => {
+api.all('/', (req, res, next) => {
   res.redirect(301, '/todos')
 })
-router.get('*', (req, res, next) => {
+api.get('*', (req, res, next) => {
   res.redirect(301, '/todos')
 })
 
