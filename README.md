@@ -26,9 +26,9 @@ sqlite3 api.db
 Vous trouverez 2 tables :
 
 ### Users
-**userId** | firstname | lastname | username | password | email | password | createdAt | updatedAt
---- | --- | --- | --- | --- | --- | --- | --- | ---
-Interger (AI) | Varchar | Varchar | Varchar | Varchar | Varchar | Varchar | Datetime | Datetime
+**userId** | firstname | lastname | username | email | password | createdAt | updatedAt
+--- | --- | --- | --- | --- | --- | --- | ---
+Interger (AI) | Varchar | Varchar | Varchar | Varchar | Varchar | Datetime | Datetime
 
 ### Todos
 ***userId*** | name |completion | created_at | updated_at
