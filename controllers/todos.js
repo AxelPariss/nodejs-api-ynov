@@ -148,7 +148,14 @@ router.all('/', (req, res, next) => {
   res.redirect(301, '/')
 })
 router.get('*', (req, res, next) => {
-  res.redirect(301, '/')
+  res.format({
+    html: () => {
+      res.render('404')
+    },
+    json: () => {
+      res.status(404).send()
+    }
+  })
 })
 
 module.exports = router

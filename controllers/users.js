@@ -155,7 +155,8 @@ router.get('/:id/todos', (req, res) => {
         res.render('todos', {
           title: 'GET TODOS',
           request: 'GET ' + req.originalUrl,
-          todos: todos 
+          todos: todos,
+          moment: moment
         })
       },
       json: () => {
@@ -172,7 +173,14 @@ router.all('/', (req, res, next) => {
   res.redirect(301, '/')
 })
 router.get('*', (req, res, next) => {
-  res.redirect(301, '/')
+  res.format({
+    html: () => {
+      res.render('404')
+    },
+    json: () => {
+      res.status(404).send()
+    }
+  })
 })
 
 module.exports = router

@@ -27,7 +27,7 @@ Vous trouverez 2 tables :
 
 ### Users
 **userId** | firstname | lastname | username | password | email | password | createdAt | updatedAt
---- | --- | --- | --- | --- | --- | --- | ---
+--- | --- | --- | --- | --- | --- | --- | --- | ---
 Interger (AI) | Varchar | Varchar | Varchar | Varchar | Varchar | Varchar | Datetime | Datetime
 
 ### Todos
@@ -47,12 +47,21 @@ Accept: application/json
 - **[<code>GET</code> users](localhost:3000/users)**
 - **[<code>GET</code> users/:id](localhost:3000/users/{id})**
 - **[<code>POST</code> users](localhost:3000/users)**
+- **[<code>PUT</code> users/:id](localhost:3000/users/{id})**
+- **[<code>DELETE</code> users/:id](localhost:3000/users/{id})**
+- **[<code>GET</code> users/add](localhost:3000/users/add)**
+- **[<code>DELETE</code> users/:id/edit](localhost:3000/users/{id}/edit)**
+- **[<code>DELETE</code> users/:id/todos](localhost:3000/users/{id}/todos)**
 
 ### Todos
 
-- **[<code>GET</code> users](localhost:3000/todos)**
-- **[<code>GET</code> users/:id](localhost:3000/todos/{id})**
-- **[<code>POST</code> users](localhost:3000/todos)**
+- **[<code>GET</code> todos](localhost:3000/todos)**
+- **[<code>GET</code> todos/:id](localhost:3000/todos/{id})**
+- **[<code>POST</code> todos](localhost:3000/todos)**
+- **[<code>PUT</code> todos/:id](localhost:3000/todos/{id})**
+- **[<code>DELETE</code> todos/:id](localhost:3000/todos/{id})**
+- **[<code>GET</code> todos/add](localhost:3000/todos/add)**
+- **[<code>DELETE</code> todos/:id/edit](localhost:3000/todos/{id}/edit)**
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

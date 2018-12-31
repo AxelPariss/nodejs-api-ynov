@@ -9,6 +9,9 @@ module.exports = {
   getAll() {
     return db.all("SELECT * FROM users")
   },
+  getTodos(userId) {
+    return db.all("SELECT rowid AS id, * FROM todos WHERE userId = ?", userId)
+  },
   findOne(id) {
     return db.get("SELECT * FROM users WHERE userId = ?", id)
   },
