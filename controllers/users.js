@@ -65,17 +65,17 @@ router.get('/:id', (req, res) => {
 // GET FORM TO UPDATE A TODO
 router.get('/:id/edit', (req, res) => {
   if (!req.params.id) return res.status(404).send('NOT FOUND')
-  Todos.findOne(req.params.id)
-  .then((todo) => {
+  Users.findOne(req.params.id)
+  .then((user) => {
     res.format({
       html: () => {
-        res.render('edit', {
-          title: 'EDIT TODO',
-          todo: todo
+        res.render('add_user', {
+          title: 'EDIT USER',
+          user: user
         })
       },
       json: () => {
-        res.json({todo: todo})
+        res.json({user: user})
       }
     })
   })

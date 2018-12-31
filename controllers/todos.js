@@ -70,7 +70,7 @@ router.get('/:id/edit', (req, res) => {
   .then((todo) => {
     res.format({
       html: () => {
-        res.render('edit', {
+        res.render('add_todo', {
           title: 'EDIT TODO',
           todo: todo
         })

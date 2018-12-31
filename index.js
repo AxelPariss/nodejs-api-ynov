@@ -34,7 +34,14 @@ api.all('/', (req, res, next) => {
   res.redirect(301, '/todos')
 })
 api.get('*', (req, res, next) => {
-  res.redirect(301, '/todos')
+  res.format({
+    html: () => {
+      res.render('404')
+    },
+    json: () => {
+      res.status(404).send()
+    }
+  })
 })
 
 api.listen(3000);
