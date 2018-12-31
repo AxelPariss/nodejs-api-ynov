@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
 router.get('/add', (req, res) => {
   res.format({
     html: () => {
-      res.render('add', {
+      res.render('add_todo', {
         title: 'ADD TODO'
       })
     }

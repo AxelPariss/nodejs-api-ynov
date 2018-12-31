@@ -105,16 +105,16 @@ router.post('/', (req, res) => {
   })
 })
 
-// UPDATE A TODO
+// UPDATE A USER
 router.put('/:id', (req, res) => {
   if (!req.params.id) return res.status(404).send('NOT FOUND')
-  req.body.updated_at = new Date() // Update time
-  req.body.id = req.params.id // Add id to body
-  Todos.update(req.body)
-  .then((todo) => 
+  req.body.updatedAt = new Date() // Update time
+  req.body.userId = req.params.id // Add id to body
+  Users.update(req.body)
+  .then((user) => 
     res.format({
       html: () => {
-        res.redirect(301, '/')
+        res.redirect(301, '/users')
       },
       json: () => {
         res.json({message: 'success'})
@@ -126,13 +126,13 @@ router.put('/:id', (req, res) => {
   })
 })
 
-// DELETE A TODO
+// DELETE A USER
 router.delete('/:id', (req, res) => {
   if (!req.params.id) return res.status(404).send('NOT FOUND')
-  Todos.delete(req.params.id).then(() => {
+  Users.delete(req.params.id).then(() => {
     res.format({
       html: () => {
-        res.redirect(301, '/')
+        res.redirect(301, '/todos')
       },
       json: () => {
         res.json({message: 'success'})
